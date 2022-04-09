@@ -15,9 +15,9 @@ const falseAnswer = 0;
 
 const Questions = () => {
   let navigate = useNavigate();
+  const [gameState, setGameState] = useState("");
   const {
     tour,
-    setTour,
     score,
     setScore,
     totalAskedQuestion,
@@ -25,13 +25,9 @@ const Questions = () => {
     totalCorrectQuestions,
     setTotalCorrectQuestions,
     setAllAnswers,
-    allAnswers,
     questions,
     setQuestions,
   } = useContext(ScoreTourContext);
-
-  const [gameState, setGameState] = useState("");
-  // const [lastSelectedValue, setLastSelectedValue] = useState();
 
   useEffect(() => {
     for (let i = 0; i < totalTourQuestionCount; i++) {
@@ -53,7 +49,6 @@ const Questions = () => {
     if (gameState !== "") {
       return;
     }
-    // setLastSelectedValue(answer);
 
     if (answer === question.correctAnswer) {
       setGameState("success");
@@ -66,7 +61,6 @@ const Questions = () => {
             prevState + Math.ceil(Math.sqrt(question.correctAnswer))
         );
         setAllAnswers((prevState) => [...prevState, trueAnswer]);
-        // setLastSelectedValue();
       }, 3000);
     } else {
       setGameState("error");
@@ -74,7 +68,6 @@ const Questions = () => {
         setTotalAskedQuestion(totalAskedQuestion + 1);
         setGameState("");
         setAllAnswers((prevState) => [...prevState, falseAnswer]);
-        // setLastSelectedValue();
       }, 3000);
     }
     if (question.isLast) {
@@ -84,8 +77,6 @@ const Questions = () => {
   const cn = gameState
     ? `${questionsStyle.parentDiv} ${questionsStyle[gameState]}`
     : questionsStyle.parentDiv;
-
-  // fill={gameState === "error" && lastSelectedValue === question.answer[0] ? "#2D2D2D" : gameState === "success" && "#2D2D2D" }
 
   return (
     <div className={cn}>
