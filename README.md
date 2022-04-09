@@ -1,4 +1,4 @@
-# week4-assignment
+# Week-4 Mini Math Game
 
 **Project's Target** : To use useContext hook, localStorage, and analyze how to build an algorithm for creating a Mini Math Game via Reactjs. The game is about solving 10 random multiplication questions. Every question have 2 random wrong answers and 1 correct answer. These answer boxes are also generated randomly. Correct answers give you points which are added up to your total score. Correct questions and total scores can be viewed on the final page. Have fun!
 
