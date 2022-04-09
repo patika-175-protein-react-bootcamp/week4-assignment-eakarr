@@ -61,6 +61,9 @@ const Questions = () => {
             prevState + Math.ceil(Math.sqrt(question.correctAnswer))
         );
         setAllAnswers((prevState) => [...prevState, trueAnswer]);
+        if (question.isLast) {
+          navigate("/final");
+        }
       }, 3000);
     } else {
       setGameState("error");
@@ -68,11 +71,12 @@ const Questions = () => {
         setTotalAskedQuestion(totalAskedQuestion + 1);
         setGameState("");
         setAllAnswers((prevState) => [...prevState, falseAnswer]);
+        if (question.isLast) {
+          navigate("/final");
+        }
       }, 3000);
     }
-    if (question.isLast) {
-      navigate("/final");
-    }
+    
   };
   const cn = gameState
     ? `${questionsStyle.parentDiv} ${questionsStyle[gameState]}`
