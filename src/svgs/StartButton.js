@@ -8,6 +8,7 @@ const StartButton = () => {
       viewBox="0 0 447 139"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      style={{cursor: "pointer"}}
     >
       <g>
         <rect x="0" y="0" width="140" height="85"></rect>
